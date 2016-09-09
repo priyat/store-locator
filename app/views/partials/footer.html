@@ -1,0 +1,61 @@
+<footer class="page-footer red darken-1">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">About the Store Locator app</h5>
+        <p class="grey-text text-lighten-4">
+          Write about the application here
+        </p>
+      </div>
+      <div class="col l3 s12">
+        <h5 class="white-text">Sample Links</h5>
+        <ul>
+          <li><a class="white-text" href="#!">Link 1</a></li>
+          <li><a class="white-text" href="#!">Link 2</a></li>
+          <li><a class="white-text" href="#!">Link 3</a></li>
+          <li><a class="white-text" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+      <div class="col l3 s12">
+        <h5 class="white-text">Sample Links</h5>
+        <ul>
+          <li><a class="white-text" href="#!">Link 1</a></li>
+          <li><a class="white-text" href="#!">Link 2</a></li>
+          <li><a class="white-text" href="#!">Link 3</a></li>
+          <li><a class="white-text" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      MVC Express App for: <a class="white-text text-darken-2" href="#">Quadrant4 NodeJS training</a>
+    </div>
+  </div>
+</footer>
+
+{% if ENV_DEVELOPMENT %}
+  <script src="http://localhost:35729/livereload.js"></script>
+{% endif %}
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+<!-- Google Maps API to track location  -->
+<script src="https://maps.googleapis.com/maps/api/js?key=[YOUR_KEY_HERE]"></script>
+
+
+<!-- Live reload for development -->
+{% if ENV_DEVELOPMENT %}
+<script src="http://localhost:35729/livereload.js"></script>
+{% endif %}
+
+<!--InitRsponsiveSidenav Menu  -->
+<script>
+  (function ($) {
+    $(function () {
+      $('.button-collapse').sideNav();
+    });
+  })(jQuery);
+</script>
