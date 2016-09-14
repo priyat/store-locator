@@ -8,6 +8,10 @@ var bodyParser = require('body-parser');
 var compress = require('compression');
 var methodOverride = require('method-override');
 var swig = require('swig');
+var passport = require('./passport');
+var config = require('./config');
+var session = require('express-session');
+var MongoSessionStore = require('connect-mongo')(session);
 
 module.exports = function(app, config) {
   var env = process.env.NODE_ENV || 'development';
@@ -31,6 +35,15 @@ module.exports = function(app, config) {
   app.use(cookieParser());
   app.use(compress());
   app.use(express.static(config.root + '/public'));
+  app.use(session({
+    secret: 'AB1GS3CR3T',
+    saveUninitialized: true,
+    resave: true,
+    store: new MongoSessionStore({
+      url: config.db,
+      collection: 'sessions',
+    }),
+  }));
   app.use(methodOverride());
 
   var controllers = glob.sync(config.root + '/app/controllers/*.js');
@@ -63,5 +76,8 @@ module.exports = function(app, config) {
         title: 'error'
       });
   });
+
+  app.use(passport.initialize());
+  app.use(passport.session());
 
 };
